@@ -1,0 +1,79 @@
+function commandMachine() {
+
+function drink()
+{prompt("thé ou café ?")};
+
+function sugar()
+{prompt("Voulez-vous du sucre?")};
+
+function milk()
+{prompt('Voulez-vous du lait?')};
+
+function vegetalMilk()
+{prompt("Voulez-vous du lait végétal?")};
+
+
+let drinkChoice = prompt('Thé ou café?');
+let sugarChoice = prompt('Voulez-vous du sucre?');
+let milkChoice = prompt('Voulez-vous du lait?');
+let vegetalMilkChoice = prompt('Voulez-vous du lait végétal?');
+
+drink();
+if (drinkChoice === "thé" || drinkChoice === "café") {
+ 	sugar();
+}
+else {drink();}
+
+if (sugarChoice === "oui" || sugarChoice === "non"){
+	milk();
+	}else {
+		sugar();
+		}
+
+if(sugarChoice === "non"){
+	sugarChoice = "sans sucre";
+	} else {
+	sugarChoice = "avec sucre";
+	} 
+
+
+if (milkChoice === "oui" ){
+	milkChoice = "avec lait";
+	vegetalMilk(); 
+	
+} else{
+	milkChoice = "sans lait";
+	let commandRecap = prompt(`${drinkChoice}, ${sugarChoice}, ${milkChoice}, validez-vous votre commande?`);
+	if (commandRecap === "oui") {
+		alert(`la préparation de votre ${drinkChoice} est en cours`);
+		return;
+	} else {
+		commandMachine();
+	}
+} 
+
+if (vegetalMilkChoice === "oui"){
+	vegetalMilkChoice = "Lait végétal";
+	commandRecap = prompt(`${drinkChoice}, ${sugarChoice}, ${milkChoice}, ${vegetalMilkChoice} validez-vous votre commande?`); 
+	if (commandRecap === "oui") {
+		alert(`la préparation de votre ${drinkChoice} est en cours`);
+	} else {
+		commandMachine();
+	}
+
+	 
+}else if (vegetalMilkChoice ==="non"){
+	vegetalMilkChoice = "Lait de vache";
+	commandRecap = prompt(`${drinkChoice}, ${sugarChoice}, ${milkChoice}, ${vegetalMilkChoice} validez-vous votre commande?`);
+	if (commandRecap === "oui") {
+		alert(`la préparation de votre ${drinkChoice} est en cours`);
+	} else {
+		commandMachine();
+	}
+}
+else { 
+vegetalMilk();
+} 
+}
+
+commandMachine();
